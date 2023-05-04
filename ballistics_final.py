@@ -6,7 +6,7 @@ from pylab import plot,xlabel,ylabel,show
 import numpy as np
 import scipy.integrate as integrate
 
-plt.rc('text',usetex=True) 
+plt.rc('text',usetex=True)
 plt.rc('font', family='serif',serif='Palatino')
 
 B = 4.1e-4
@@ -112,8 +112,9 @@ dzdx_sq = [element**2 for element in dzdx]
 # define integrand
 integrand = np.sqrt(1+np.array(dydx_sq)+np.array(dzdx_sq))
 
-print("Distance to the plate (x-direction) is",np.round(xpoints_y[-1],decimals=3))
-print("Total path distance =", np.round((integrate.trapz(integrand,dx=0.018)),decimals=3))
+print("Fastball:\n")
+print("Extra Distance (in feet) Traveled due to spin and gravity:", np.round((integrate.trapz(integrand,dx=0.0184)-xpoints_y[-1]),decimals=3)*3.281)
+
 
 # initial conditions for screwball
 v_0 = 85 * 0.44704 # m/s
@@ -191,8 +192,9 @@ dzdx_sq = [element**2 for element in dzdx]
 # define integrand
 integrand = np.sqrt(1+np.array(dydx_sq)+np.array(dzdx_sq))
 
-print("Distance to the plate (x-direction) is",np.round(xpoints_y[-1],decimals=3))
-print("Total path distance =", np.round((integrate.trapz(integrand,dx=0.018)),decimals=5))
+print("Screwball:\n")
+print("Extra Distance (in feet) Traveled due to spin and gravity:", np.round((integrate.trapz(integrand,dx=0.0184)-xpoints_y[-1]),decimals=3)*3.281)
+
 
 
 # initial conditions for slider
@@ -270,8 +272,9 @@ dzdx_sq = [element**2 for element in dzdx]
 # define integrand
 integrand = np.sqrt(1+np.array(dydx_sq)+np.array(dzdx_sq))
 
-print("Distance to the plate (x-direction) is",np.round(xpoints_y[-1],decimals=3))
-print("Total path distance =", np.round((integrate.trapz(integrand,dx=0.018)),decimals=5))
+print("Slider:\n")
+print("Extra Distance (in feet) Traveled due to spin and gravity:", np.round((integrate.trapz(integrand,dx=0.0184)-xpoints_y[-1]),decimals=3)*3.281)
+
 
 
 # initial conditions for curveball
@@ -350,5 +353,5 @@ dzdx_sq = [element**2 for element in dzdx]
 # define integrand
 integrand = np.sqrt(1+np.array(dydx_sq)+np.array(dzdx_sq))
 
-print("Distance to the plate (x-direction) is",np.round(xpoints_y[-1],decimals=3))
-print("Total path distance =", np.round((integrate.trapz(integrand,dx=0.018)),decimals=5))
+print("Curveball:\n")
+print("Extra Distance (in feet) Traveled due to spin and gravity:", np.round((integrate.trapz(integrand,dx=0.0184)-xpoints_y[-1]),decimals=3)*3.281)
